@@ -18,8 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const p1 = document.querySelector('input[name="pergunta 1"]:checked');
     const p2 = document.querySelector('input[name="pergunta 2"]');
-    const p3 = document.querySelector('input[name="pergunta 2"]');
+    const p3 = document.querySelector('input[name="pergunta 3"]');
     const p4 = document.querySelector('input[name="pergunta 4"]:checked');
+    const p5 = document.querySelector('input[name="pergunta 5"]:checked');
+    const p6 = document.querySelector('input[name="pergunta 6"]:checked');
+    const p7 = document.querySelector('input[name="pergunta 7"]:checked');
+    const p8 = document.querySelector('input[name="pergunta 8"]:checked');
+    const p9 = document.querySelector('input[name="pergunta 9"]:checked');
+    const p10 = document.querySelector('input[name="pergunta 10"]:checked');
 
     if (p1 && p1.value === gabarito['pergunta 1']) acertos++; else erros++;
     if (p2 && normalizeText(p2.value) === normalizeText(gabarito['pergunta 2'])) acertos++; else erros++;
@@ -34,8 +40,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const resumo = `
       Pergunta 1: ${p1 ? p1.value : 'sem resposta'}
       Pergunta 2: ${p2 ? p2.value.trim() : 'sem resposta'}
-      Pergunta 3: ${p3Selecionados.join(', ') || 'sem resposta'}
+      Pergunta 3: ${p3 ? p3.value.trim() : 'sem resposta'}
       Pergunta 4: ${p4 ? p4.value : 'sem resposta'}
+      Pergunta 5: ${p5 ? p5.value : 'sem resposta'}
+      Pergunta 6: ${p6 ? p6.value : 'sem resposta'}
+      Pergunta 7: ${p7 ? p7.value : 'sem resposta'}
+      Pergunta 8: ${p8 ? p8.value : 'sem resposta'}
+      Pergunta 9: ${p9 ? p9.value : 'sem resposta'}
+      Pergunta 10: ${p10 ? p10.value : 'sem resposta'}
     `;
 
     document.getElementById('campoAcertos').value = acertos;
