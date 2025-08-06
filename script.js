@@ -13,6 +13,36 @@ document.addEventListener('DOMContentLoaded', () => {
     'pergunta 9': 'b) 21 ', // Moda dos dados da tabela
     'pergunta 10': 'b) azul' // Moda das preferências de cor
   };
+   let acertos = 0;
+    let erros = 0;
+
+    const p1 = document.querySelector('input[name="pergunta 1"]:checked');
+    const p2 = document.querySelector('input[name="pergunta 2"]');
+    const p3 = document.querySelector('input[name="pergunta 2"]');
+    const p4 = document.querySelector('input[name="pergunta 4"]:checked');
+
+    if (p1 && p1.value === gabarito['pergunta 1']) acertos++; else erros++;
+    if (p2 && normalizeText(p2.value) === normalizeText(gabarito['pergunta 2'])) acertos++; else erros++;
+    if (p3Selecionados.length === gabarito['pergunta3'].length &&
+        p3Selecionados.every(v => gabarito['pergunta3'].includes(v))) {
+      acertos++;
+    } else {
+      erros++;
+    }
+    if (p4 && p4.value.replace(/\s+/g, '') === gabarito['pergunta 4'].replace(/\s+/g, '')) acertos++; else erros++;
+
+    const resumo = `
+      Pergunta 1: ${p1 ? p1.value : 'sem resposta'}
+      Pergunta 2: ${p2 ? p2.value.trim() : 'sem resposta'}
+      Pergunta 3: ${p3Selecionados.join(', ') || 'sem resposta'}
+      Pergunta 4: ${p4 ? p4.value : 'sem resposta'}
+    `;
+
+    document.getElementById('campoAcertos').value = acertos;
+    document.getElementById('campoErros').value = erros;
+    document.getElementById('campoResumo').value = resumo.trim();
+
+    alert(`Você acertou ${acertos} e errou ${erros}. Enviando seu feedback...`);
 
   // Função para normalizar texto: remove acentos e converte para minúsculas
   function normalizeText(text) {
