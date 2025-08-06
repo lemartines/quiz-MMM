@@ -3,14 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Cada chave representa o "name" do input da pergunta
   const gabarito = {
     'pergunta 1': 'd) 515', // Radio (resposta exata como string)
-    'pergunta 2': 'b) 20,77', // Texto livre
-    'pergunta 3': 'b) 25%', // Checkbox: só '25%' deve ser selecionado
+    'pergunta 2': 'd) 20,85', // Texto livre
+    'pergunta 3': 'e) 60%', // Checkbox: só '25%' deve ser selecionado
     'pergunta 4': 'b) 123, 351.6, 211.5', // Fórmula matemática como string
-    'pergunta 5': 'b) 12.8', // Resposta de texto para média
-    'pergunta 6': 'b) 77.5', // Resposta de média
-    'pergunta 7': 'b) 7,55 e está acima da média', // Mediana comparada com a média
-    'pergunta 8': 'b) 717,50', // Resposta sobre a moda
-    'pergunta 9': 'c) 30', // Moda dos dados da tabela
+    'pergunta 5': 'c) 14,6', // Resposta de texto para média
+    'pergunta 6': 'a) 8,83', // Resposta de média
+    'pergunta 7': 'b) 7,20 e está acima da média', // Mediana comparada com a média
+    'pergunta 8': 'b) 17,50', // Resposta sobre a moda
+    'pergunta 9': 'b) 21 ', // Moda dos dados da tabela
     'pergunta 10': 'b) azul' // Moda das preferências de cor
   };
 
