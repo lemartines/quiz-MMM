@@ -1,7 +1,9 @@
+// Aguarda o carregamento completo do DOM antes de executar o script
 document.addEventListener('DOMContentLoaded', () => {
+  
   // Objeto com as respostas corretas (gabarito) do quiz
   // Cada chave representa o "name" do input da pergunta
-  const gabarito = {
+   const gabarito = {
     'pergunta 1': 'd) 515', // Radio (resposta exata como string)
     'pergunta 2': 'd) 20,85', // Texto livre
     'pergunta 3': 'e) 60%', // Checkbox: só '25%' deve ser selecionado
@@ -13,48 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'pergunta 9': 'b) 21 ', // Moda dos dados da tabela
     'pergunta 10': 'b) azul' // Moda das preferências de cor
   };
-   let acertos = 0;
-    let erros = 0;
 
-    const p1 = document.querySelector('input[name="pergunta 1"]:checked');
-    const p2 = document.querySelector('input[name="pergunta 2"]');
-    const p3 = document.querySelector('input[name="pergunta 3"]');
-    const p4 = document.querySelector('input[name="pergunta 4"]:checked');
-    const p5 = document.querySelector('input[name="pergunta 5"]:checked');
-    const p6 = document.querySelector('input[name="pergunta 6"]:checked');
-    const p7 = document.querySelector('input[name="pergunta 7"]:checked');
-    const p8 = document.querySelector('input[name="pergunta 8"]:checked');
-    const p9 = document.querySelector('input[name="pergunta 9"]:checked');
-    const p10 = document.querySelector('input[name="pergunta 10"]:checked');
-
-    if (p1 && p1.value === gabarito['pergunta 1']) acertos++; else erros++;
-    if (p2 && normalizeText(p2.value) === normalizeText(gabarito['pergunta 2'])) acertos++; else erros++;
-    if (p3Selecionados.length === gabarito['pergunta3'].length &&
-        p3Selecionados.every(v => gabarito['pergunta3'].includes(v))) {
-      acertos++;
-    } else {
-      erros++;
-    }
-    if (p4 && p4.value.replace(/\s+/g, '') === gabarito['pergunta 4'].replace(/\s+/g, '')) acertos++; else erros++;
-
-    const resumo = `
-      Pergunta 1: ${p1 ? p1.value : 'sem resposta'}
-      Pergunta 2: ${p2 ? p2.value.trim() : 'sem resposta'}
-      Pergunta 3: ${p3 ? p3.value.trim() : 'sem resposta'}
-      Pergunta 4: ${p4 ? p4.value : 'sem resposta'}
-      Pergunta 5: ${p5 ? p5.value : 'sem resposta'}
-      Pergunta 6: ${p6 ? p6.value : 'sem resposta'}
-      Pergunta 7: ${p7 ? p7.value : 'sem resposta'}
-      Pergunta 8: ${p8 ? p8.value : 'sem resposta'}
-      Pergunta 9: ${p9 ? p9.value : 'sem resposta'}
-      Pergunta 10: ${p10 ? p10.value : 'sem resposta'}
-    `;
-
-    document.getElementById('campoAcertos').value = acertos;
-    document.getElementById('campoErros').value = erros;
-    document.getElementById('campoResumo').value = resumo.trim();
-
-    alert(`Você acertou ${acertos} e errou ${erros}. Enviando seu feedback...`);
 
   // Função para normalizar texto: remove acentos e converte para minúsculas
   function normalizeText(text) {
@@ -113,60 +74,67 @@ document.addEventListener('DOMContentLoaded', () => {
     } else erros++; // nenhuma opção selecionada
 
     // === PERGUNTA 3 === (tipo radio)
-    const p3 = document.querySelector('input[name="pergunta 3"]:checked');
+    const p3 = document.querySelector('input[name="pergunta 1"]:checked');
     if (p3) {
       if (p3.value === gabarito['pergunta 3']) acertos++;
       else erros++;
     } else erros++; // nenhuma opção selecionada
 
-    // === PERGUNTA 4 === (tipo radio)
+    // === PERGUNTA 4 === (tipo radio com fórmula)
     const p4 = document.querySelector('input[name="pergunta 4"]:checked');
     if (p4) {
-      if (p4.value === gabarito['pergunta 4']) acertos++;
+      // Compara ignorando espaços entre os caracteres
+      if (p4.value.replace(/\s+/g, '') === gabarito['pergunta 4'].replace(/\s+/g, '')) acertos++;
       else erros++;
-    } else erros++; // nenhuma opção selecionada
+    } else erros++;
 
-    // === PERGUNTA 5 === (tipo radio)
+    // === PERGUNTA 5 === (tipo radio com fórmula)
     const p5 = document.querySelector('input[name="pergunta 5"]:checked');
     if (p5) {
-      if (p5.value === gabarito['pergunta 5']) acertos++;
+      // Compara ignorando espaços entre os caracteres
+      if (p5.value.replace(/\s+/g, '') === gabarito['pergunta 5'].replace(/\s+/g, '')) acertos++;
       else erros++;
-    } else erros++; // nenhuma opção selecionada
+    } else erros++;
 
-    // === PERGUNTA 6 === (tipo radio)
+    // === PERGUNTA 6 === (tipo radio com fórmula)
     const p6 = document.querySelector('input[name="pergunta 6"]:checked');
     if (p6) {
-      if (p6.value === gabarito['pergunta 6']) acertos++;
+      // Compara ignorando espaços entre os caracteres
+      if (p6.value.replace(/\s+/g, '') === gabarito['pergunta 6'].replace(/\s+/g, '')) acertos++;
       else erros++;
-    } else erros++; // nenhuma opção selecionada
+    } else erros++;
 
-    // === PERGUNTA 7 === (tipo radio)
+    // === PERGUNTA 7 === (tipo radio com fórmula)
     const p7 = document.querySelector('input[name="pergunta 7"]:checked');
     if (p7) {
-      if (p7.value === gabarito['pergunta 7']) acertos++;
+      // Compara ignorando espaços entre os caracteres
+      if (p7.value.replace(/\s+/g, '') === gabarito['pergunta 7'].replace(/\s+/g, '')) acertos++;
       else erros++;
-    } else erros++; // nenhuma opção selecionada
+    } else erros++;
 
-    // === PERGUNTA 8 === (tipo radio)
+    // === PERGUNTA 8 === (tipo radio com fórmula)
     const p8 = document.querySelector('input[name="pergunta 8"]:checked');
     if (p8) {
-      if (p8.value === gabarito['pergunta 8']) acertos++;
+      // Compara ignorando espaços entre os caracteres
+      if (p8.value.replace(/\s+/g, '') === gabarito['pergunta 8'].replace(/\s+/g, '')) acertos++;
       else erros++;
-    } else erros++; // nenhuma opção selecionada
+    } else erros++;
 
-    // === PERGUNTA 9 === (tipo radio)
+    // === PERGUNTA 9 === (tipo radio com fórmula)
     const p9 = document.querySelector('input[name="pergunta 9"]:checked');
     if (p9) {
-      if (p9.value === gabarito['pergunta 9']) acertos++;
+      // Compara ignorando espaços entre os caracteres
+      if (p9.value.replace(/\s+/g, '') === gabarito['pergunta 9'].replace(/\s+/g, '')) acertos++;
       else erros++;
-    } else erros++; // nenhuma opção selecionada
+    } else erros++;
 
-    // === PERGUNTA 10 === (tipo radio)
+    // === PERGUNTA 10 === (tipo radio com fórmula)
     const p10 = document.querySelector('input[name="pergunta 10"]:checked');
     if (p10) {
-      if (p10.value === gabarito['pergunta 10']) acertos++;
+      // Compara ignorando espaços entre os caracteres
+      if (p10.value.replace(/\s+/g, '') === gabarito['pergunta 10'].replace(/\s+/g, '')) acertos++;
       else erros++;
-    } else erros++; // nenhuma opção selecionada
+    } else erros++;
 
     // Cria um objeto com os dados do resultado
     const resultado = {
@@ -179,6 +147,24 @@ document.addEventListener('DOMContentLoaded', () => {
     let banco = JSON.parse(localStorage.getItem('quizResultados') || '{}');
     banco[email] = resultado;
     localStorage.setItem('quizResultados', JSON.stringify(banco));
+    // Preenche os campos ocultos do formulário com os dados do quiz
+document.getElementById('campoAcertos').value = acertos;
+document.getElementById('campoErros').value = erros;
+
+// Cria um resumo textual das respostas
+const respostasResumo = `
+   Pergunta 1: ${p1 ? p1.value : 'sem resposta'}
+      Pergunta 2: ${p2 ? p2.value : 'sem resposta'}
+      Pergunta 3: ${p3 ? p3.value : 'sem resposta'}
+      Pergunta 4: ${p4 ? p4.value : 'sem resposta'}
+      Pergunta 5: ${p5 ? p5.value : 'sem resposta'}
+      Pergunta 6: ${p6 ? p6.value : 'sem resposta'}
+      Pergunta 7: ${p7 ? p7.value : 'sem resposta'}
+      Pergunta 8: ${p8 ? p8.value : 'sem resposta'}
+      Pergunta 9: ${p9 ? p9.value : 'sem resposta'}
+      Pergunta 10: ${p10 ? p10.value : 'sem resposta'}
+    `;
+document.getElementById('campoResumo').value = respostasResumo.trim();
 
     // Exibe o resultado para o usuário na tela
     resultadoDiv.innerHTML = `
@@ -187,5 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <p>Erros: ${erros}</p>
       <p>Seu resultado foi salvo com sucesso!</p>
     `;
+    document.getElementById('feedbackForm').submit();
   });
 });
