@@ -4,16 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Objeto com as respostas corretas (gabarito) do quiz
   // Cada chave representa o "name" do input da pergunta
    const gabarito = {
-    'pergunta 1': 'd) 515', // Radio (resposta exata como string)
-    'pergunta 2': 'd) 20,85', // Texto livre
-    'pergunta 3': 'e) 60%', // Checkbox: só '25%' deve ser selecionado
-    'pergunta 4': 'b) 123, 351.6, 211.5', // Fórmula matemática como string
-    'pergunta 5': 'c) 14,6', // Resposta de texto para média
-    'pergunta 6': 'a) 8,83', // Resposta de média
-    'pergunta 7': 'b) 7,20 e está acima da média', // Mediana comparada com a média
-    'pergunta 8': 'b) 17,50', // Resposta sobre a moda
-    'pergunta 9': 'b) 21 ', // Moda dos dados da tabela
-    'pergunta 10': 'b) azul' // Moda das preferências de cor
+    'pergunta1': 'd) 515', // Radio (resposta exata como string)
+    'pergunta2': 'd) 20,85', // Texto livre
+    'pergunta3': 'e) 60%', // Checkbox: só '25%' deve ser selecionado
+    'pergunta4': 'b) 123, 351.6, 211.5', // Fórmula matemática como string
+    'pergunta5': 'c) 14,6', // Resposta de texto para média
+    'pergunta6': 'a) 8,83', // Resposta de média
+    'pergunta7': 'b) 7,20 e está acima da média', // Mediana comparada com a média
+    'pergunta8': 'b) 17,50', // Resposta sobre a moda
+    'pergunta9': 'b) 21 ', // Moda dos dados da tabela
+    'pergunta10': 'b) azul' // Moda das preferências de cor
   };
 
 
