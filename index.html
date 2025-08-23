@@ -199,58 +199,12 @@ Em ordem de vendas, esses foram os valores anotados pelo caixa: </h2>
           <button type="button" onclick="processarEEnviar()">Enviar respostas e feedback</button>
         </fieldset>
       </section>
-    </form>
   </main>
 
   <footer>
     <p>Quiz de matemática. Todos os direitos reservados.</p>
     <p>Para conhecer outros quizzes <a href="https://flgferas.github.io/sitenovoleo/" target="_blank" rel="noopener noreferrer">clique aqui.</a></p>
   </footer>
-
-  <script>
-  function processarEEnviar() {
-    const form = document.getElementById('quizForm');
-
-    const gabarito = {
-      pergunta1: "d) 515",
-      pergunta2: "d) 20,85",
-      pergunta3: "e) 60%",
-      pergunta4: "b) 123, 351.6, 211.5",
-      pergunta5: "c) 14,6",
-      pergunta6: "a) 8,83",
-      pergunta7: "b) 7,20 e está acima da média",
-      pergunta8: "b) 17,50",
-      pergunta9: "b) 21",
-      pergunta10: "b) azul"
-    };
-
-    let acertos = 0;
-    let erros = 0;
-    let resumo = '';
-
-    for (let i = 1; i <= 10; i++) {
-      const nome = `pergunta${i}`;
-      const resposta = form.querySelector(`input[name="${nome}"]:checked`);
-      const valor = resposta ? resposta.value : 'sem resposta';
-
-      resumo += `Pergunta ${i}: ${valor}\n`;
-
-      if (valor === gabarito[nome]) {
-        acertos++;
-      } else {
-        erros++;
-      }
-    }
-
-    document.getElementById('campoAcertos').value = acertos;
-    document.getElementById('campoErros').value = erros;
-    document.getElementById('campoResumo').value = resumo.trim();
-
-    alert(`Você acertou ${acertos} de 10 perguntas.`);
-
-    form.submit();
-  }
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>

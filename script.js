@@ -12,9 +12,53 @@ document.addEventListener('DOMContentLoaded', () => {
     'pergunta6': 'a) 8,83', // Resposta de média
     'pergunta7': 'b) 7,20 e está acima da média', // Mediana comparada com a média
     'pergunta8': 'b) 17,50', // Resposta sobre a moda
-    'pergunta9': 'b) 21 ', // Moda dos dados da tabela
+    'pergunta9': 'b) 21', // Moda dos dados da tabela
     'pergunta10': 'b) azul' // Moda das preferências de cor
   };
+function processarEEnviar() {
+  const form = document.getElementById('quizForm');
+
+  const gabarito = {
+    pergunta1: "d) 515",
+    pergunta2: "d) 20,85",
+    pergunta3: "e) 60%",
+    pergunta4: "b) 123, 351.6, 211.5",
+    pergunta5: "c) 14,6",
+    pergunta6: "a) 8,83",
+    pergunta7: "b) 7,20 e está acima da média",
+    pergunta8: "b) 17,50",
+    pergunta9: "b) 21",
+    pergunta10: "b) azul"
+  };
+
+  let acertos = 0;
+  let erros = 0;
+  let resumo = '';
+
+  for (let i = 1; i <= 10; i++) {
+    const nome = `pergunta${i}`;
+    const resposta = form.querySelector(`input[name="${nome}"]:checked`);
+    const valor = resposta ? resposta.value : 'sem resposta';
+
+    resumo += `Pergunta ${i}: ${valor}\n`;
+
+    if (valor === gabarito[nome]) {
+      acertos++;
+    } else {
+      erros++;
+    }
+  }
+
+  // Preencher campos ocultos
+  document.getElementById('campoAcertos').value = acertos;
+  document.getElementById('campoErros').value = erros;
+  document.getElementById('campoResumo').value = resumo.trim();
+
+  alert(`Você acertou ${acertos} de 10 perguntas.`);
+
+  // Enviar para o Formspree
+  form.submit();
+}
 
 
   // Função para normalizar texto: remove acentos e converte para minúsculas
