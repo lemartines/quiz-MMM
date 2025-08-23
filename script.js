@@ -1,4 +1,4 @@
-// Aguarda o carregamento completo do DOM antes de executar o script
+// Aguarda o carregamento completo do DOM antes de executar o script.js
 document.addEventListener('DOMContentLoaded', () => {
   
   // Objeto com as respostas corretas (gabarito) do quiz
