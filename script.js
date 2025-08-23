@@ -1,23 +1,8 @@
-// Aguarda o carregamento completo do DOM antes de executar o script.js
+  // Aguarda o carregamento completo do DOM antes de executar o script
 document.addEventListener('DOMContentLoaded', () => {
   
   // Objeto com as respostas corretas (gabarito) do quiz
   // Cada chave representa o "name" do input da pergunta
-   const gabarito = {
-    'pergunta1': 'd) 515', // Radio (resposta exata como string)
-    'pergunta2': 'd) 20,85', // Texto livre
-    'pergunta3': 'e) 60%', // Checkbox: só '25%' deve ser selecionado
-    'pergunta4': 'b) 123, 351.6, 211.5', // Fórmula matemática como string
-    'pergunta5': 'c) 14,6', // Resposta de texto para média
-    'pergunta6': 'a) 8,83', // Resposta de média
-    'pergunta7': 'b) 7,20 e está acima da média', // Mediana comparada com a média
-    'pergunta8': 'b) 17,50', // Resposta sobre a moda
-    'pergunta9': 'b) 21', // Moda dos dados da tabela
-    'pergunta10': 'b) azul' // Moda das preferências de cor
-  };
-function processarEEnviar() {
-  const form = document.getElementById('quizForm');
-
   const gabarito = {
     pergunta1: "d) 515",
     pergunta2: "d) 20,85",
@@ -31,35 +16,6 @@ function processarEEnviar() {
     pergunta10: "b) azul"
   };
 
-  let acertos = 0;
-  let erros = 0;
-  let resumo = '';
-
-  for (let i = 1; i <= 10; i++) {
-    const nome = `pergunta${i}`;
-    const resposta = form.querySelector(`input[name="${nome}"]:checked`);
-    const valor = resposta ? resposta.value : 'sem resposta';
-
-    resumo += `Pergunta ${i}: ${valor}\n`;
-
-    if (valor === gabarito[nome]) {
-      acertos++;
-    } else {
-      erros++;
-    }
-  }
-
-  // Preencher campos ocultos
-  document.getElementById('campoAcertos').value = acertos;
-  document.getElementById('campoErros').value = erros;
-  document.getElementById('campoResumo').value = resumo.trim();
-
-  alert(`Você acertou ${acertos} de 10 perguntas.`);
-
-  // Enviar para o Formspree
-  form.submit();
-}
-
 
   // Função para normalizar texto: remove acentos e converte para minúsculas
   function normalizeText(text) {
@@ -69,6 +25,36 @@ function processarEEnviar() {
       .normalize("NFD") // separa letras de acentos
       .replace(/[\u0300-\u036f]/g, ""); // remove os acentos
   }
+
+  // Seleciona a tag <main> onde os resultados serão mostrados
+  const main = document.querySelector('main');
+
+  // Cria dinamicamente uma nova seção no HTML para finalizar o quiz
+  const resultadoSection = document.createElement('section');
+  resultadoSection.innerHTML = `
+    <h2>Finalize seu Quiz</h2>
+    <label for="emailUser">Digite seu email para salvar seu resultado:</label><br>
+    <input type="email" id="emailUser" required placeholder="seuemail@exemplo.com"><br><br>
+    <button id="btnEnviar">Enviar Respostas</button>
+    <div id="resultadoFinal" style="margin-top: 20px;"></div>
+  `;
+  main.appendChild(resultadoSection); // adiciona a seção ao DOM
+
+  // Referências aos elementos de email, botão e div de resultado
+  const btnEnviar = document.getElementById('btnEnviar');
+  const emailInput = document.getElementById('emailUser');
+  const resultadoDiv = document.getElementById('resultadoFinal');
+
+  // Evento de clique no botão "Enviar Respostas"
+  btnEnviar.addEventListener('click', (e) => {
+    e.preventDefault(); // evita recarregar a página
+
+    // Pega o email digitado e valida se está no formato básico
+    const email = emailInput.value.trim().toLowerCase();
+    if (!email || !email.includes('@')) {
+      alert('Por favor, digite um email válido.');
+      return;
+    }
 
     let acertos = 0; // contador de acertos
     let erros = 0;   // contador de erros
@@ -167,16 +153,16 @@ document.getElementById('campoErros').value = erros;
 
 // Cria um resumo textual das respostas
 const respostasResumo = `
-   Pergunta1: ${p1 ? p1.value : 'sem resposta'}
-      Pergunta2: ${p2 ? p2.value : 'sem resposta'}
-      Pergunta3: ${p3 ? p3.value : 'sem resposta'}
-      Pergunta4: ${p4 ? p4.value : 'sem resposta'}
-      Pergunta5: ${p5 ? p5.value : 'sem resposta'}
-      Pergunta6: ${p6 ? p6.value : 'sem resposta'}
-      Pergunta7: ${p7 ? p7.value : 'sem resposta'}
-      Pergunta8: ${p8 ? p8.value : 'sem resposta'}
-      Pergunta9: ${p9 ? p9.value : 'sem resposta'}
-      Pergunta10: ${p10 ? p10.value : 'sem resposta'}
+   Pergunta 1: ${p1 ? p1.value : 'sem resposta'}
+      Pergunta 2: ${p2 ? p2.value : 'sem resposta'}
+      Pergunta 3: ${p3 ? p3.value : 'sem resposta'}
+      Pergunta 4: ${p4 ? p4.value : 'sem resposta'}
+      Pergunta 5: ${p5 ? p5.value : 'sem resposta'}
+      Pergunta 6: ${p6 ? p6.value : 'sem resposta'}
+      Pergunta 7: ${p7 ? p7.value : 'sem resposta'}
+      Pergunta 8: ${p8 ? p8.value : 'sem resposta'}
+      Pergunta 9: ${p9 ? p9.value : 'sem resposta'}
+      Pergunta 10: ${p10 ? p10.value : 'sem resposta'}
     `;
 document.getElementById('campoResumo').value = respostasResumo.trim();
 
@@ -187,6 +173,6 @@ document.getElementById('campoResumo').value = respostasResumo.trim();
       <p>Erros: ${erros}</p>
       <p>Seu resultado foi salvo com sucesso!</p>
     `;
-    document.getElementById('quizForm').submit();
+    document.getElementById('feedbackForm').submit();
   });
 });
