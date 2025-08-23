@@ -60,79 +60,79 @@ document.addEventListener('DOMContentLoaded', () => {
     let erros = 0;   // contador de erros
 
     // === PERGUNTA 1 === (tipo radio)
-    const p1 = document.querySelector('input[name="pergunta 1"]:checked');
+    const p1 = document.querySelector('input[name="pergunta1"]:checked');
     if (p1) {
-      if (p1.value === gabarito['pergunta 1']) acertos++;
+      if (p1.value === gabarito['pergunta1']) acertos++;
       else erros++;
     } else erros++; // nenhuma opção selecionada
 
     // === PERGUNTA 2 === (tipo radio)
-    const p2 = document.querySelector('input[name="pergunta 2"]:checked');
+    const p2 = document.querySelector('input[name="pergunta2"]:checked');
     if (p2) {
-      if (p2.value === gabarito['pergunta 2']) acertos++;
+      if (p2.value === gabarito['pergunta2']) acertos++;
       else erros++;
     } else erros++; // nenhuma opção selecionada
 
     // === PERGUNTA 3 === (tipo radio)
-    const p3 = document.querySelector('input[name="pergunta 3"]:checked');
+    const p3 = document.querySelector('input[name="pergunta3"]:checked');
     if (p3) {
-      if (p3.value === gabarito['pergunta 3']) acertos++;
+      if (p3.value === gabarito['pergunta3']) acertos++;
       else erros++;
     } else erros++; // nenhuma opção selecionada
 
     // === PERGUNTA 4 === (tipo radio com fórmula)
-    const p4 = document.querySelector('input[name="pergunta 4"]:checked');
+    const p4 = document.querySelector('input[name="pergunta4"]:checked');
     if (p4) {
       // Compara ignorando espaços entre os caracteres
-      if (p4.value.replace(/\s+/g, '') === gabarito['pergunta 4'].replace(/\s+/g, '')) acertos++;
+      if (p4.value.replace(/\s+/g, '') === gabarito['pergunta4'].replace(/\s+/g, '')) acertos++;
       else erros++;
     } else erros++;
 
     // === PERGUNTA 5 === (tipo radio com fórmula)
-    const p5 = document.querySelector('input[name="pergunta 5"]:checked');
+    const p5 = document.querySelector('input[name="pergunta5"]:checked');
     if (p5) {
       // Compara ignorando espaços entre os caracteres
-      if (p5.value.replace(/\s+/g, '') === gabarito['pergunta 5'].replace(/\s+/g, '')) acertos++;
+      if (p5.value.replace(/\s+/g, '') === gabarito['pergunta5'].replace(/\s+/g, '')) acertos++;
       else erros++;
     } else erros++;
 
     // === PERGUNTA 6 === (tipo radio com fórmula)
-    const p6 = document.querySelector('input[name="pergunta 6"]:checked');
+    const p6 = document.querySelector('input[name="pergunta6"]:checked');
     if (p6) {
       // Compara ignorando espaços entre os caracteres
-      if (p6.value.replace(/\s+/g, '') === gabarito['pergunta 6'].replace(/\s+/g, '')) acertos++;
+      if (p6.value.replace(/\s+/g, '') === gabarito['pergunta6'].replace(/\s+/g, '')) acertos++;
       else erros++;
     } else erros++;
 
     // === PERGUNTA 7 === (tipo radio com fórmula)
-    const p7 = document.querySelector('input[name="pergunta 7"]:checked');
+    const p7 = document.querySelector('input[name="pergunta7"]:checked');
     if (p7) {
       // Compara ignorando espaços entre os caracteres
-      if (p7.value.replace(/\s+/g, '') === gabarito['pergunta 7'].replace(/\s+/g, '')) acertos++;
+      if (p7.value.replace(/\s+/g, '') === gabarito['pergunta7'].replace(/\s+/g, '')) acertos++;
       else erros++;
     } else erros++;
 
     // === PERGUNTA 8 === (tipo radio com fórmula)
-    const p8 = document.querySelector('input[name="pergunta 8"]:checked');
+    const p8 = document.querySelector('input[name="pergunta8"]:checked');
     if (p8) {
       // Compara ignorando espaços entre os caracteres
-      if (p8.value.replace(/\s+/g, '') === gabarito['pergunta 8'].replace(/\s+/g, '')) acertos++;
+      if (p8.value.replace(/\s+/g, '') === gabarito['pergunta8'].replace(/\s+/g, '')) acertos++;
       else erros++;
     } else erros++;
 
     // === PERGUNTA 9 === (tipo radio com fórmula)
-    const p9 = document.querySelector('input[name="pergunta 9"]:checked');
+    const p9 = document.querySelector('input[name="pergunta9"]:checked');
     if (p9) {
       // Compara ignorando espaços entre os caracteres
-      if (p9.value.replace(/\s+/g, '') === gabarito['pergunta 9'].replace(/\s+/g, '')) acertos++;
+      if (p9.value.replace(/\s+/g, '') === gabarito['pergunta9'].replace(/\s+/g, '')) acertos++;
       else erros++;
     } else erros++;
 
     // === PERGUNTA 10 === (tipo radio com fórmula)
-    const p10 = document.querySelector('input[name="pergunta 10"]:checked');
+    const p10 = document.querySelector('input[name="pergunta10"]:checked');
     if (p10) {
       // Compara ignorando espaços entre os caracteres
-      if (p10.value.replace(/\s+/g, '') === gabarito['pergunta 10'].replace(/\s+/g, '')) acertos++;
+      if (p10.value.replace(/\s+/g, '') === gabarito['pergunta10'].replace(/\s+/g, '')) acertos++;
       else erros++;
     } else erros++;
 
@@ -153,16 +153,16 @@ document.getElementById('campoErros').value = erros;
 
 // Cria um resumo textual das respostas
 const respostasResumo = `
-   Pergunta 1: ${p1 ? p1.value : 'sem resposta'}
-      Pergunta 2: ${p2 ? p2.value : 'sem resposta'}
-      Pergunta 3: ${p3 ? p3.value : 'sem resposta'}
-      Pergunta 4: ${p4 ? p4.value : 'sem resposta'}
-      Pergunta 5: ${p5 ? p5.value : 'sem resposta'}
-      Pergunta 6: ${p6 ? p6.value : 'sem resposta'}
-      Pergunta 7: ${p7 ? p7.value : 'sem resposta'}
-      Pergunta 8: ${p8 ? p8.value : 'sem resposta'}
-      Pergunta 9: ${p9 ? p9.value : 'sem resposta'}
-      Pergunta 10: ${p10 ? p10.value : 'sem resposta'}
+   Pergunta1: ${p1 ? p1.value : 'sem resposta'}
+      Pergunta2: ${p2 ? p2.value : 'sem resposta'}
+      Pergunta3: ${p3 ? p3.value : 'sem resposta'}
+      Pergunta4: ${p4 ? p4.value : 'sem resposta'}
+      Pergunta5: ${p5 ? p5.value : 'sem resposta'}
+      Pergunta6: ${p6 ? p6.value : 'sem resposta'}
+      Pergunta7: ${p7 ? p7.value : 'sem resposta'}
+      Pergunta8: ${p8 ? p8.value : 'sem resposta'}
+      Pergunta9: ${p9 ? p9.value : 'sem resposta'}
+      Pergunta10: ${p10 ? p10.value : 'sem resposta'}
     `;
 document.getElementById('campoResumo').value = respostasResumo.trim();
 
@@ -173,6 +173,6 @@ document.getElementById('campoResumo').value = respostasResumo.trim();
       <p>Erros: ${erros}</p>
       <p>Seu resultado foi salvo com sucesso!</p>
     `;
-    document.getElementById('feedbackForm').submit();
+    document.getElementById('quizForm').submit();
   });
 });
