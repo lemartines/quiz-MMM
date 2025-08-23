@@ -73,17 +73,6 @@ function processarEEnviar() {
   // Seleciona a tag <main> onde os resultados serão mostrados
   const main = document.querySelector('main');
 
-  // Cria dinamicamente uma nova seção no HTML para finalizar o quiz
-  const resultadoSection = document.createElement('section');
-  resultadoSection.innerHTML = `
-    <h2>Finalize seu Quiz</h2>
-    <label for="emailUser">Digite seu email para salvar seu resultado:</label><br>
-    <input type="email" id="emailUser" required placeholder="seuemail@exemplo.com"><br><br>
-    <button id="btnEnviar">Enviar Respostas</button>
-    <div id="resultadoFinal" style="margin-top: 20px;"></div>
-  `;
-  main.appendChild(resultadoSection); // adiciona a seção ao DOM
-
   // Referências aos elementos de email, botão e div de resultado
   const btnEnviar = document.getElementById('btnEnviar');
   const emailInput = document.getElementById('emailUser');
