@@ -70,25 +70,6 @@ function processarEEnviar() {
       .replace(/[\u0300-\u036f]/g, ""); // remove os acentos
   }
 
-  // Seleciona a tag <main> onde os resultados serão mostrados
-  const main = document.querySelector('main');
-
-  // Referências aos elementos de email, botão e div de resultado
-  const btnEnviar = document.getElementById('btnEnviar');
-  const emailInput = document.getElementById('emailUser');
-  const resultadoDiv = document.getElementById('resultadoFinal');
-
-  // Evento de clique no botão "Enviar Respostas"
-  btnEnviar.addEventListener('click', (e) => {
-    e.preventDefault(); // evita recarregar a página
-
-    // Pega o email digitado e valida se está no formato básico
-    const email = emailInput.value.trim().toLowerCase();
-    if (!email || !email.includes('@')) {
-      alert('Por favor, digite um email válido.');
-      return;
-    }
-
     let acertos = 0; // contador de acertos
     let erros = 0;   // contador de erros
 
